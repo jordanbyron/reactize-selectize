@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+import $ from 'jquery';
+import 'selectize';
 
 class Select extends React.Component {
   constructor(props) {
@@ -6,6 +8,7 @@ class Select extends React.Component {
 
     this.onChange = this.onChange.bind(this);
   }
+
   componentDidMount() {
     const $select = $(this.select);
 
@@ -13,6 +16,7 @@ class Select extends React.Component {
 
     $select.on("change", this.onChange);
   }
+
   componentWillUnmount() {
     const selectize = this.select.selectize;
 
