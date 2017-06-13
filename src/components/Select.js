@@ -1,6 +1,10 @@
 import React from 'react';
 import $ from 'jquery';
 import 'selectize';
+import 'selectize/dist/css/selectize.css';
+import 'selectize/dist/css/selectize.bootstrap3.css';
+
+// TODO - pass prop to choose Selectize theme/CSS
 
 class Select extends React.Component {
   constructor(props) {
@@ -14,7 +18,7 @@ class Select extends React.Component {
 
     $select.selectize(this.props.options);
 
-    $select.on("change", this.onChange);
+    $select.on('change', this.onChange);
   }
 
   componentWillUnmount() {
@@ -24,23 +28,35 @@ class Select extends React.Component {
       selectize.destroy();
     }
   }
+
   onChange(e) {
     if (this.props.onChange) {
       this.props.onChange(e);
     }
   }
+
+  renderBlank() {
+    if (this.props['data-include-blank']) {
+      return (
+        <option value="">
+          {this.props.placeholder || 'Select an option'}
+        </option>
+      );
+    }
+  }
+
   render() {
     let selectProps = { ...this.props };
     delete selectProps.options;
 
     return (
       <select
-        {...selectProps}
+        { ...selectProps }
         ref={select => {
           this.select = select;
         }}
       >
-        <option value="" />
+        {this.renderBlank()}
         {this.props.children}
       </select>
     );

@@ -11,9 +11,9 @@
   "author": "Madriska, Inc.",
   "license": "MIT",
   "dependencies": {
-    "jquery": "^3.2.1",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "jquery": "^2.2.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "selectize": "^0.12.4"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "babel-preset-react": "^6.24.1",
     "jest": "^20.0.4",
     "react-scripts": "1.0.7",
-    "react-test-renderer": "^15.5.4"
+    "react-test-renderer": "^15.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
