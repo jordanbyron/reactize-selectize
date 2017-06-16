@@ -1,8 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import 'selectize';
-import 'selectize/dist/css/selectize.css';
-import 'selectize/dist/css/selectize.bootstrap3.css';
+//import 'selectize/dist/css/selectize.css';
+//import 'selectize/dist/css/selectize.bootstrap3.css';
 
 // TODO - pass prop to choose Selectize theme/CSS
 
@@ -46,7 +46,7 @@ class Select extends React.Component {
   }
 
   render() {
-    let selectProps = { ...this.props };
+    let selectProps = Object.assign({}, this.props);
     delete selectProps.options;
 
     return (
