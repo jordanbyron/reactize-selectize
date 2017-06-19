@@ -11,26 +11,77 @@ React wrapper for [Selectize.js](https://github.com/selectize/selectize.js)
 
 ## Usage
 
-Here is an example:
+You can pass `<option>` elements, and even `<optgroup>` ones, to the `Select` component a few different ways.
+
+First, you can create an array of `<option>` elements, and pass it as a child to the component.
 
 ```js
-const workers = [
-  <option value={1} key={1}>Hunter Stevens</option>,
-  <option value={2} key={2}>Jordan Byron</option>
+const animals = [
+  <option value="cat" key={1}>Cat</option>
+  <option value="dog" key={2}>Dog</option>
+  <option value="goat" key={3}>Goat</option>
+  <option value="turtle" key={4}>Turtle</option>
+  <option value="lizard" key={5}>Lizard</option>
+  <option value="snake" key={6}>Snake</option>
 ];
 
-<Select
-  value=""
-  onChange={(e) => console.log(e.target.value, e.target.innerText)}
-  className="form-control"
-  name="workers"
-  style={{ width: 300 }}
-  data-include-blank
-  options={{
-    placeholder: 'All Workers'
-  }}
->
+<Select>
+  {animals}
+</Select>
 ```
+
+Of course, you don't need to use arrays. You can nest `<option>` or `<optgroup>` elements inside the component.
+
+```js
+<Select>
+  <optgroup label="Mammals">
+    <option value="cat" key={1}>Cat</option>
+    <option value="dog" key={2}>Dog</option>
+    <option value="goat" key={3}>Goat</option>
+  </optgroup>
+  <optgroup label="Reptiles">
+    <option value="turtle" key={4}>Turtle</option>
+    <option value="lizard" key={5}>Lizard</option>
+    <option value="snake" key={6}>Snake</option>
+  </optgroup>
+</Select>
+```
+
+You can also use the Selectize API. Add the prop `options` to `Select`, and pass it an object. The following example is adapted from [a Selectize.js example](https://github.com/selectize/selectize.js/blob/master/examples/optgroups.html#L115-L152)
+
+```js
+<Select
+  options={{
+    options: [
+      { class: 'mammal', value: 'dog', key: 1, name: 'Dog' },
+      { class: 'mammal', value: 'cat', key: 2, name: 'Cat' },
+      { class: 'bird', value: 'duck', key: 3, name: 'Duck' },
+      { class: 'bird', value: 'chicken', key: 4, name: 'Chicken' },
+      { class: 'reptile', value: 'snake', key: 5, name: 'Snake' },
+      { class: 'reptile', value: 'lizard', key: 6, name: 'Lizard' },
+    ],
+    optgroups: [
+      { value: 'mammal', key: 1 label: 'Mammal' },
+      { value: 'bird', key: 2, label: 'Bird' },
+      { value: 'reptile', key: 3, label: 'Reptile' }
+    ],
+    optgroupField: 'class',
+    labelField: 'name'
+  }}
+/>
+```
+
+You can also pass other options inside the `options` prop. For example, to set a placeholder:
+
+```js
+<Select
+  options={{
+    placeholder: "All animals"
+  }}
+/>
+```
+
+Remember, anything inside the `options` prop must be valid options based on the Selectize.js API.
 
 ## CSS Styles
 

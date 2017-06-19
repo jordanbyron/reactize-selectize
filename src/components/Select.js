@@ -1,10 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 import 'selectize';
-//import 'selectize/dist/css/selectize.css';
-//import 'selectize/dist/css/selectize.bootstrap3.css';
-
-// TODO - pass prop to choose Selectize theme/CSS
 
 class Select extends React.Component {
   constructor(props) {
@@ -35,16 +31,6 @@ class Select extends React.Component {
     }
   }
 
-  renderBlank() {
-    if (this.props['data-include-blank']) {
-      return (
-        <option value="">
-          {this.props.placeholder || 'Select an option'}
-        </option>
-      );
-    }
-  }
-
   render() {
     let selectProps = Object.assign({}, this.props);
     delete selectProps.options;
@@ -56,7 +42,6 @@ class Select extends React.Component {
           this.select = select;
         }}
       >
-        {this.renderBlank()}
         {this.props.children}
       </select>
     );
