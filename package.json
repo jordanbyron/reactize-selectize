@@ -26,12 +26,11 @@
     "react-test-renderer": "^15.4.2"
   },
   "scripts": {
-    "test": "jest __tests__/"
+    "test": "jest src/__tests__/"
   },
   "jest": {
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
-    },
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
+    }
   }
 }

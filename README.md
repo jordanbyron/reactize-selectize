@@ -89,7 +89,7 @@ Selectize includes a basic stylesheet, and three different themes. Configuring w
 
 ## Testing
 
-Simply run `npm test`. It'll run Jest for all files under the `__tests__` folder.
+Simply run `npm test`. It'll run Jest for all files under the `src/__tests__/` folder.
 
 ## License
 
