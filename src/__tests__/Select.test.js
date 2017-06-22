@@ -17,11 +17,6 @@ import Select from '../components/Select';
 // onChange
 
 describe('Select', () => {
-  const employees = [
-    <option value={1} key={1}>Hunter Stevens</option>,
-    <option value={2} key={2}>Jordan Byron</option>,
-    <option value={3} key={3}>Brad Ediger</option>
-  ]
 
   let wrapper;
 
@@ -71,24 +66,63 @@ describe('Select', () => {
     // expect(select.props).toEqual(props);
   });
 
-
-  describe('rendered select', () => {
-    xit('receives all props passed to Select', () => {
-    });
-  });
-
   it('contains no options when not specified', () => {
     wrapper = shallow(<Select />);
 
     expect(wrapper.find('option')).toNotBeDefined;
   });
 
+  describe('rendered select', () => {
+    xit('receives all props passed to Select', () => {
+    });
+  });
 
-  it('contains two options when passed as children', () => {
-    wrapper = mount(<Select>{employees}</Select>);
-    const { children } = wrapper.node.props;
+  describe('children', () => {
+    it('renders 3 options', () => {
+      const animals = [
+        <option value="cat" key={1}>Cat</option>,
+        <option value="dog" key={2}>Dog</option>,
+        <option value="goat" key={3}>Goat</option>
+      ];
 
-    expect(children.length).toEqual(3);
-    expect(children).toEqual(expect.arrayContaining(employees));
+      wrapper = mount(<Select>{animals}</Select>);
+      const { children } = wrapper.node.props;
+
+      expect(wrapper.find('option')).toHaveLength(3);
+      expect(children.length).toEqual(3);
+      expect(children).toEqual(expect.arrayContaining(animals));
+    });
+
+    xit('renders 2 optgroups with 3 options each', () => {
+      const mammals = (
+        <optgroup label="Mammals">
+          <option value="cat" key={1}>Cat</option>
+          <option value="dog" key={2}>Dog</option>
+          <option value="goat" key={3}>Goat</option>
+        </optgroup>
+      );
+
+      const reptiles = (
+        <optgroup label="Reptiles">
+          <option value="turtle" key={4}>Turtle</option>
+          <option value="lizard" key={5}>Lizard</option>
+          <option value="snake" key={6}>Snake</option>
+        </optgroup>
+      );
+
+      // create wrapper, or mount component?
+    });
+  });
+
+
+  describe('Selectize API options', () => {
+    xit('renders a placeholder', () => {
+    });
+
+    xit('renders 3 options', () => {
+    });
+
+    xit('renders 2 optgroups with 3 options each', () => {
+    });
   });
 });
