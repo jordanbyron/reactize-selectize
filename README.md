@@ -15,13 +15,13 @@ You can pass `<option>` elements, and even `<optgroup>` ones, to the `Select` co
 
 First, you can create an array of `<option>` elements, and pass it as a child to the component.
 
-```js
+```jsx
 const animals = [
-  <option value="cat" key={1}>Cat</option>
-  <option value="dog" key={2}>Dog</option>
-  <option value="goat" key={3}>Goat</option>
-  <option value="turtle" key={4}>Turtle</option>
-  <option value="lizard" key={5}>Lizard</option>
+  <option value="cat" key={1}>Cat</option>,
+  <option value="dog" key={2}>Dog</option>,
+  <option value="goat" key={3}>Goat</option>,
+  <option value="turtle" key={4}>Turtle</option>,
+  <option value="lizard" key={5}>Lizard</option>,
   <option value="snake" key={6}>Snake</option>
 ];
 
@@ -32,7 +32,7 @@ const animals = [
 
 Of course, you don't need to use arrays. You can nest `<option>` or `<optgroup>` elements inside the component.
 
-```js
+```jsx
 <Select>
   <optgroup label="Mammals">
     <option value="cat" key={1}>Cat</option>
@@ -49,7 +49,7 @@ Of course, you don't need to use arrays. You can nest `<option>` or `<optgroup>`
 
 You can also use the Selectize API. Add the prop `options` to `Select`, and pass it an object. The following example is adapted from [a Selectize.js example](https://github.com/selectize/selectize.js/blob/master/examples/optgroups.html#L115-L152)
 
-```js
+```jsx
 <Select
   options={{
     options: [
@@ -73,7 +73,7 @@ You can also use the Selectize API. Add the prop `options` to `Select`, and pass
 
 You can also pass other options inside the `options` prop. For example, to set a placeholder:
 
-```js
+```jsx
 <Select
   options={{
     placeholder: "All animals"
