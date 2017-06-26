@@ -1,8 +1,8 @@
-jest.dontMock('../components/Select');
+// jest.dontMock('../components/Select');
 
 import React, { TestUtils } from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Select from '../components/Select';
+import Select from '../src/components/Select';
 
 // TODO
 // options => placeholder, selectOnTab, highlight, options

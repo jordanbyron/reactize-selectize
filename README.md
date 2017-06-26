@@ -53,19 +53,20 @@ You can also use the Selectize API. Add the prop `options` to `Select`, and pass
 <Select
   options={{
     options: [
-      { class: 'mammal', value: 'dog', key: 1, name: 'Dog' },
-      { class: 'mammal', value: 'cat', key: 2, name: 'Cat' },
-      { class: 'bird', value: 'duck', key: 3, name: 'Duck' },
-      { class: 'bird', value: 'chicken', key: 4, name: 'Chicken' },
-      { class: 'reptile', value: 'snake', key: 5, name: 'Snake' },
-      { class: 'reptile', value: 'lizard', key: 6, name: 'Lizard' },
+      { class: 'mammal', value: 'dog', name: 'Dog' },
+      { class: 'mammal', value: 'cat', name: 'Cat' },
+      { class: 'bird', value: 'duck', name: 'Duck' },
+      { class: 'bird', value: 'chicken', name: 'Chicken' },
+      { class: 'reptile', value: 'snake', name: 'Snake' },
+      { class: 'reptile', value: 'lizard', name: 'Lizard' },
     ],
     optgroups: [
-      { value: 'mammal', key: 1 label: 'Mammal' },
-      { value: 'bird', key: 2, label: 'Bird' },
-      { value: 'reptile', key: 3, label: 'Reptile' }
+      { value: 'mammal', label: 'Mammal' },
+      { value: 'bird', label: 'Bird' },
+      { value: 'reptile', label: 'Reptile' }
     ],
     optgroupField: 'class',
+    valueField: 'value',
     labelField: 'name'
   }}
 />
