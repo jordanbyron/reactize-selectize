@@ -36,14 +36,16 @@ class Select extends React.Component {
     delete selectProps.options;
 
     return (
-      <select
-        { ...selectProps }
-        ref={select => {
-          this.select = select;
-        }}
-      >
-        {this.props.children}
-      </select>
+      <div>
+        <select
+          { ...selectProps }
+          ref={select => {
+            this.select = select;
+          }}
+        >
+          {this.props.children}
+        </select>
+      </div>
     );
   }
 }

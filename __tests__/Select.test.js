@@ -33,20 +33,33 @@ describe('Select', () => {
     mountedSelect = undefined;
   });
 
-  it('always renders a select', () => {
-    expect(selectComponent().find('select')).toHaveLength(1);
+  describe('when mounted', () => {
+    it('always renders a div', () => {
+      expect(selectComponent().find('div')).toHaveLength(1);
+    });
+
+    it('always renders a select', () => {
+      expect(selectComponent().find('select')).toHaveLength(1);
+    });
+
+    it('always renders .selectize-input', () => {
+      expect(selectComponent().html()).toEqual(
+        expect.stringContaining('selectize-input')
+      );
+    });
   });
 
   it('passes props down to select tag', () => {
-    // Method 1
-    props = { className: 'testing', name: 'test' };
+    props = { className: 'testing' };
 
     const select = selectComponent().find('select');
+    const div = selectComponent().find('div');
 
     // Includes `children` property
-    expect(Object.keys(select.props())).toHaveLength(3);
+    expect(Object.keys(select.props())).toHaveLength(2);
+    expect(select.hasClass('testing')).toBe(true);
+    expect(div.hasClass('testing')).toBe(false);
   });
-
 
   describe('when `children` is not defined', () => {
     it('does not render option elements', () => {
@@ -100,73 +113,64 @@ describe('Select', () => {
       expect(selectComponent().find('optgroup')).toHaveLength(2);
       expect(selectComponent().find('option')).toHaveLength(6);
     });
-
   });
 
-  describe('when `options.options` is undefined', () => {
-    it('does not render option elements', () => {
-      const { options } = selectComponent().props();
-
-      expect(options).toBeUndefined();
-      expect(selectComponent().find('option')).toHaveLength(0);
-    });
-  });
-
-  describe('when `options.options` is defined', () => {
-    // FIXME
-    // `option` and `optgroup` tags are not found when passing
-    // them as Selectize options
-
-    it('renders 3 options', () => {
-      const animals = [
-        { value: 'dog', key: 1, name: 'Dog' },
-        { value: 'cat', key: 2, name: 'Cat' },
-        { value: 'duck', key: 3, name: 'Duck' },
-      ];
-
-      props.options = { options: animals };
-
-      const { options } = selectComponent().node.props.options;
-
-      expect(options).toHaveLength(3);
-      expect(options).toEqual(expect.arrayContaining(animals));
-      // expect(selectComponent().find('option')).toHaveLength(3);
+  describe('when using the Selectize API', () => {
+    describe('when `options` is undefined', () => {
+      it('does not render .option', () => {
+        expect(selectComponent().html()).not.toEqual(
+          expect.stringContaining('div class="option" data-selectable')
+        );
+      });
     });
 
-    it('renders 3 optgroups with 2 options each', () => {
-      const animals = {
-        options: [
-          { class: 'mammal', value: 'dog', key: 1, name: 'Dog' },
-          { class: 'mammal', value: 'cat', key: 2, name: 'Cat' },
-          { class: 'bird', value: 'duck', key: 3, name: 'Duck' },
-          { class: 'bird', value: 'chicken', key: 4, name: 'Chicken' },
-          { class: 'reptile', value: 'snake', key: 5, name: 'Snake' },
-          { class: 'reptile', value: 'lizard', key: 6, name: 'Lizard' }
-        ],
-        optgroups: [
-          { value: 'mammal', key: 1, label: 'Mammal' },
-          { value: 'bird', key: 2, label: 'Bird' },
-          { value: 'reptile', key: 3, label: 'Reptile' }
-        ],
-        optgroupField: 'class',
-        labelField: 'name'
-      };
+    describe('when `options` is defined', () => {
+      xit('renders 3 .option elements under .selectize-dropdown-context', () => {
+        const animals = [
+          { value: 'dog', name: 'Dog' },
+          { value: 'cat', name: 'Cat' },
+          { value: 'duck', name: 'Duck' },
+        ];
 
-      props.options = animals;
+        props.options = { options: animals };
 
-      const { options, optgroups } = selectComponent().node.props.options;
+        const { options } = selectComponent().node.props.options;
 
-      expect(options).toHaveLength(6);
-      expect(options).toEqual(expect.arrayContaining(animals.options));
-      // expect(selectComponent().find('option')).toHaveLength(6);
-      expect(optgroups).toHaveLength(3);
-      expect(optgroups).toEqual(expect.arrayContaining(animals.optgroups));
-      // expect(selectComponent().find('optgroup')).toHaveLength(3);
-    });
-  });
+        expect(options).toHaveLength(3);
+        expect(options).toEqual(expect.arrayContaining(animals));
+        // expect(selectComponent().find('option')).toHaveLength(3);
+      });
 
-  describe('Selectize API options', () => {
-    xit('renders a placeholder', () => {
+      xit('renders 2 .optgroup elements, with 3 .option each, under .selectize-dropdown-context', () => {
+        const animals = {
+          options: [
+            { class: 'mammal', value: 'dog', name: 'Dog' },
+            { class: 'mammal', value: 'cat', name: 'Cat' },
+            { class: 'bird', value: 'duck', name: 'Duck' },
+            { class: 'bird', value: 'chicken', name: 'Chicken' },
+            { class: 'reptile', value: 'snake', name: 'Snake' },
+            { class: 'reptile', value: 'lizard', name: 'Lizard' }
+          ],
+          optgroups: [
+            { value: 'mammal', label: 'Mammal' },
+            { value: 'bird', label: 'Bird' },
+            { value: 'reptile', label: 'Reptile' }
+          ],
+          optgroupField: 'class',
+          labelField: 'name'
+        };
+
+        props.options = animals;
+
+        const { options, optgroups } = selectComponent().node.props.options;
+
+        expect(options).toHaveLength(6);
+        expect(options).toEqual(expect.arrayContaining(animals.options));
+        // expect(selectComponent().find('option')).toHaveLength(6);
+        expect(optgroups).toHaveLength(3);
+        expect(optgroups).toEqual(expect.arrayContaining(animals.optgroups));
+        // expect(selectComponent().find('optgroup')).toHaveLength(3);
+      });
     });
   });
 });
