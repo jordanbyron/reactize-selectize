@@ -1,9 +1,9 @@
 {
   "name": "reactize-selectize",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "React wrapper for Selectize.js",
   "private": true,
-  "main": "src/components/Select.js",
+  "main": "build/components/Select.js",
   "repository": {
     "type": "git",
     "url": "git@gitlab.madriska.com:madriska/reactize-selectize.git"
@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^2.8.2",
@@ -26,7 +27,9 @@
     "react-test-renderer": "^15.4.2"
   },
   "scripts": {
-    "test": "jest --env=jsdom __tests__/"
+    "test": "jest --env=jsdom __tests__/",
+    "build": "babel src --out-dir build",
+    "prepublish": "npm run build"
   },
   "jest": {
     "transform": {

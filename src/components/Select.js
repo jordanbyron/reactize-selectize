@@ -32,7 +32,7 @@ class Select extends React.Component {
   }
 
   render() {
-    let selectProps = Object.assign({}, this.props);
+    let selectProps = { ...this.props };
     delete selectProps.options;
 
     return (
