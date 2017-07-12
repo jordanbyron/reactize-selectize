@@ -22,6 +22,16 @@ selects, then you can thanks to this library. Yay! :muscle:
 
 ## Usage
 
+Add reactize-selectize to your project by using either of the following commands:
+
+```sh
+# Using npm
+npm install reactize-selectize
+
+# Using yarn
+yarn add reactize-selectize
+```
+
 Assuming you are using ES6 goodness, you can import this library by adding the
 following line to the top of your component file:
 
@@ -106,7 +116,11 @@ Selectize includes a basic stylesheet, and three different themes. Configuring w
 
 ## Testing
 
-Simply run `npm test`. It'll run Jest for all files under the `src/__tests__/` folder.
+Simply run `yarn test`. It'll run Jest for all files under the `src/__tests__/` folder.
+
+## Contributing
+
+See [CONTRIBUTING](CONTRIBUTING.md)
 
 ## License
 
