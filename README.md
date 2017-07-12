@@ -22,6 +22,13 @@ selects, then you can thanks to this library. Yay! :muscle:
 
 ## Usage
 
+Assuming you are using ES6 goodness, you can import this library by adding the
+following like to the top of your component file:
+
+```js
+import Select from "reactize-selectize";
+```
+
 You can pass `<option>` elements, and even `<optgroup>` ones, to the `Select` component a few different ways.
 
 First, you can create an array of `<option>` elements, and pass it as a child to the component.
