@@ -1,6 +1,17 @@
 # reactize-selectize
 
-React wrapper for [Selectize.js](https://github.com/selectize/selectize.js)
+React wrapper for [Selectize.js](https://github.com/selectize/selectize.js).
+
+__Why call this `reactize-selectize` and not `react-selectize`?__
+
+Good question! We would have used `react-selectize` but that's [already taken](https://www.npmjs.com/package/react-selectize). So we settled on `reactize-selectize`, mostly because it is a silly yet memorable name :yum:
+
+__What's the difference between this and `react-selectize`?__
+
+`react-selectize` is a react component "inspired" by `selectize.js`.
+`reactize-selectize` is a react wrapper around `selectize.js`. That means that if 
+you want to use `selectize.js` throughout your app, including react and non-react
+selects, then you can thanks to this library. Yay! :muscle:
 
 ## Dependencies
 
