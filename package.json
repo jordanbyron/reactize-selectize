@@ -8,7 +8,11 @@
     "type": "git",
     "url": "https://github.com/madriska/reactize-selectize.git"
   },
-  "author": "Madriska, Inc.",
+  "author": "Madriska, Inc. <info@madriska.com> (http://www.madriska.com)",
+  "contributors": [
+    "Hunter Stevens <onebree@gmail.com> (https://github.com/onebree)",
+    "Jordan Byron <jordan@jordanbyron.com> (http://jordanbyron.com)"
+  ],
   "license": "MIT",
   "dependencies": {
     "jquery": "^2.2.4",
