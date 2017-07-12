@@ -23,7 +23,7 @@ selects, then you can thanks to this library. Yay! :muscle:
 ## Usage
 
 Assuming you are using ES6 goodness, you can import this library by adding the
-following like to the top of your component file:
+following line to the top of your component file:
 
 ```js
 import Select from "reactize-selectize";
