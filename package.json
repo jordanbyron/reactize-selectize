@@ -2,11 +2,11 @@
   "name": "reactize-selectize",
   "version": "0.0.3",
   "description": "React wrapper for Selectize.js",
-  "private": true,
+  "homepage": "https://github.com/madriska/reactize-selectize",
   "main": "build/components/Select.js",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.madriska.com:madriska/reactize-selectize.git"
+    "url": "https://github.com/madriska/reactize-selectize.git"
   },
   "author": "Madriska, Inc.",
   "license": "MIT",
